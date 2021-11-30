@@ -1,0 +1,79 @@
+local UserInputService = game:GetService("UserInputService")
+local chatsystem = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+local toxic_quotes = {
+	placeholder = {
+		"Your bent rn, loser 🤡",
+		"LOL JIT",
+		"Absolute loser",
+		"you disgusting furry fexmboy loser",
+		"Rip Bozo? 😂",
+		"Too easy. 🥱",
+		"letmetakeyourvrginity",
+		"You're not asexybeast",
+		"You Imbecile",
+		"Get better, there's nothing else to say other than that",
+		"I bet you macro, LOL LOSER",
+		"You can't play a single class right.",
+		"Are you okay upstairs? (In the brain 🧠)",
+		"Werido.",
+		"Little boy from the slums. 👶",
+		"Unknown kid",
+		"You're my seed 🌱.",
+		"shut.",
+		"Didn't know you were this easy to toy with.",
+		"Bark for me, doggie.",
+		"You have no father figure, my guy. 👨😂😂",
+		"Where's your family?",
+		"Trash bum from a trash house XD",
+		"Wipe yourself IRL.",
+	}
+}
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+if not syn then
+	game.StarterGui:SetCore(
+		"SendNotification",
+		{
+			Title = "Thanks for being toxic",
+			Text = "Press RightAlt to use \n Credits to Velospace (Vel#1111)",
+			Icon = "",
+			Duration = 15,
+			Button1 = "velo my homie",
+			Button2 = "fuck off",
+		}
+	)
+else
+  print("You're not a skid :D")
+	game.StarterGui:SetCore(
+		"SendNotification",
+		{
+			Title = "Thanks for being toxic",
+			Text = "Press RightAlt to use \n Credits to Velospace (Vel#1111)",
+			Icon = "",
+			Duration = 15,
+			Button1 = "velo my homie",
+			Button2 = "I'm no skid",
+		}
+	)
+end
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+local function saymsg(string)
+	chatsystem.SayMessageRequest:FireServer(tostring(string),"All")
+end
+
+UserInputService.InputBegan:Connect(function(input, gameProccesedEvent)
+    if input.KeyCode == Enum.KeyCode.RightAlt then
+        local choosingNum = math.random(1, #toxic_quotes.placeholder)
+		for i,v in pairs(toxic_quotes.placeholder) do
+			if choosingNum == i then
+				saymsg(v)
+			end
+		end
+    end
+end)
